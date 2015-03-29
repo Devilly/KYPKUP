@@ -3,8 +3,3 @@ var Entry = React.createClass({
     return (<div>Test</div>);
   }
 });
-
-React.render(
-  <Entry />,
-  document.body
-);
