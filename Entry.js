@@ -1,5 +1,7 @@
 var Entry = React.createClass({
   render: function() {
-    return (<div>Test</div>);
+    return (<li>
+              <a href={this.props.url}>{this.props.title}</a>
+            </li>);
   }
 });
