@@ -5,6 +5,6 @@ var Entry = React.createClass({
 });
 
 React.render(
-  <CommentBox />,
+  <Entry />,
   document.body
 );
