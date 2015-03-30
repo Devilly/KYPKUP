@@ -23,6 +23,7 @@ var List = React.createClass({
     request("http://www.reddit.com/r/programming.json", function(responseJSON) {
       var entries = responseJSON.data.children.slice(0, 10).map(function(child) {
         return {
+          source: "reddit",
           id: child.data.id,
           title: child.data.title,
           url: child.data.url
@@ -43,6 +44,7 @@ var List = React.createClass({
         request("https://hacker-news.firebaseio.com/v0/item/" + id + ".json", function(responseJSON) {
           self.setState({
             entries: self.state.entries.concat({
+              source: "hackernews",
               id: responseJSON.id,
               title: responseJSON.title,
               url: responseJSON.url
@@ -57,7 +59,7 @@ var List = React.createClass({
   
   render: function() {
     var entries = this.state.entries.map(function(entry) {
-      return <Entry key={entry.id} title={entry.title} url={entry.url} />
+      return <Entry key={entry.id} source={entry.source} title={entry.title} url={entry.url} />
     });
     
     var style = {
