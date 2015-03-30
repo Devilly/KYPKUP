@@ -21,7 +21,7 @@ var List = React.createClass({
     }
     
     request("http://www.reddit.com/r/programming.json", function(responseJSON) {
-      var entries = responseJSON.data.children.map(function(child) {
+      var entries = responseJSON.data.children.slice(0, 10).map(function(child) {
         return {
           id: child.data.id,
           title: child.data.title,
