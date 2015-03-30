@@ -34,7 +34,13 @@ var List = React.createClass({
       return <Entry key={entry.id} title={entry.title} url={entry.url} />
     });
     
-    return <ul>{entries}</ul>;
+    var style = {
+      listStyleType: "none",
+      margin: 0,
+      padding: 0
+    };
+    
+    return <ul style={style}>{entries}</ul>;
   }
 });
     
