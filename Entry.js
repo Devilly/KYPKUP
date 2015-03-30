@@ -1,14 +1,14 @@
 var Entry = React.createClass({
   render: function() {
-    var className;
+    var icon;
     if(this.props.source === "reddit") {
-      className = "fa fa-reddit";
+      icon = <IconReddit />;
     } else if(this.props.source === "hackernews") {
-      className = "devicons devicons-hackernews";
+      icon = <IconHackerNews />;
     }
     
     return (<li>
-              <span className={className}></span>
+              {icon}
               <a href={this.props.url}>{this.props.title}</a>
             </li>);
   }
