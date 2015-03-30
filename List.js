@@ -8,25 +8,31 @@ var List = React.createClass({
   componentDidMount: function() {
     var self = this;
     
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function(event){
-      if((request.readyState === 4) && (request.status === 200)) {
-        var responseJSON = JSON.parse(request.responseText);
-        var entries = responseJSON.data.children.map(function(child) {
-          return {
-            id: child.data.id,
-            title: child.data.title,
-            url: child.data.url
-          };
-        });
+    function request(url, callback) {
+      var request = new XMLHttpRequest();
+      request.onreadystatechange = function(event){
+        if((request.readyState === 4) && (request.status === 200)) {
+          var responseJSON = JSON.parse(request.responseText);
+          callback(responseJSON);
+        }
+      };
+      request.open("GET", url);
+      request.send();
+    }
+    
+    request("http://www.reddit.com/r/programming.json", function(responseJSON) {
+      var entries = responseJSON.data.children.map(function(child) {
+        return {
+          id: child.data.id,
+          title: child.data.title,
+          url: child.data.url
+        };
+      });
 
-        self.setState({
-          entries: self.state.entries.concat(entries)
-        });
-      }
-    };
-    request.open("GET", "http://www.reddit.com/r/programming.json");
-    request.send();
+      self.setState({
+        entries: self.state.entries.concat(entries)
+      });
+    });
   },
   
   render: function() {
