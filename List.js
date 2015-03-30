@@ -33,6 +33,26 @@ var List = React.createClass({
         entries: self.state.entries.concat(entries)
       });
     });
+    
+    request("https://hacker-news.firebaseio.com/v0/topstories.json", function(responseJSON) {
+      responseJSON.every(function(id, index) {
+        if(index > 9) {
+          return false;
+        }
+        
+        request("https://hacker-news.firebaseio.com/v0/item/" + id + ".json", function(responseJSON) {
+          self.setState({
+            entries: self.state.entries.concat({
+              id: responseJSON.id,
+              title: responseJSON.title,
+              url: responseJSON.url
+            })
+          });
+        });
+        
+        return true;
+      });
+    });
   },
   
   render: function() {
