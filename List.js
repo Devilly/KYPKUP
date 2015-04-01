@@ -60,7 +60,9 @@ var List = React.createClass({
   },
   
   render: function() {
-    var entries = this.state.entries.sort(function(firstEntry, secondEntry) {
+    var entries = this.state.entries.filter(function(entry) {
+      return entry.source && entry.title && entry.url && entry.time;
+    }).sort(function(firstEntry, secondEntry) {
       var value;
       if(firstEntry.time < secondEntry.time) {
         value = -1;
