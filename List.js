@@ -36,26 +36,28 @@ var List = React.createClass({
       });
     });
     
-    request("https://hacker-news.firebaseio.com/v0/topstories.json", function(responseJSON) {
-      responseJSON.every(function(id, index) {
-        if(index > 9) {
-          return false;
-        }
-        
-        request("https://hacker-news.firebaseio.com/v0/item/" + id + ".json", function(responseJSON) {
+    request("https://hacker-news.firebaseio.com/v0/topstories.json", function(topStoryIds) {
+      var numberOfHackerNewsStories = 0;
+      function addHackerNewsStory(id) {
+        request("https://hacker-news.firebaseio.com/v0/item/" + id + ".json", function(story) {
           self.setState({
             entries: self.state.entries.concat({
               source: "hackernews",
-              id: "hackernews-" + responseJSON.id,
-              title: responseJSON.title,
-              url: responseJSON.url,
-              time: responseJSON.time
+              id: "hackernews-" + story.id,
+              title: story.title,
+              url: story.url,
+              time: story.time
             })
           });
+          
+          numberOfHackerNewsStories++;
+          if(numberOfHackerNewsStories < 10) {
+            addHackerNewsStory(topStoryIds.shift());
+          }
         });
-        
-        return true;
-      });
+      }
+      
+      addHackerNewsStory(topStoryIds.shift());
     });
   },
   
