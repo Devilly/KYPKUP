@@ -1,6 +1,6 @@
 var IconHackerNews = React.createClass({
   render: function() {
-    return (<svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 512 512" style={{"enable-background":"new 0 0 512 512"}}>
+    return (<svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 512 512">
               <g>
                 <path d="M416,96v320H96V96H416 M448,64H64v384h384V64L448,64z" fill="#000000"/>
                 <g>
