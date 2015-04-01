@@ -24,7 +24,7 @@ var List = React.createClass({
       var entries = responseJSON.data.children.slice(0, 10).map(function(child) {
         return {
           source: "reddit",
-          id: child.data.id,
+          id: "reddit-" + child.data.id,
           title: child.data.title,
           url: child.data.url,
           time: child.data.created_utc
@@ -46,7 +46,7 @@ var List = React.createClass({
           self.setState({
             entries: self.state.entries.concat({
               source: "hackernews",
-              id: responseJSON.id,
+              id: "hackernews-" + responseJSON.id,
               title: responseJSON.title,
               url: responseJSON.url,
               time: responseJSON.time
