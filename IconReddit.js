@@ -1,5 +1,6 @@
 var IconReddit = React.createClass({
   render: function() {
+    // I got the source SVG frome somewhere on the web.
     return (<svg x="0px" y="0px" width="16px" height="16px" viewBox="0 0 512 512">
               <circle cx="322.3" cy="288.4" r="31.8"/>
               <circle cx="190.3" cy="288.4" r="31.8"/>
