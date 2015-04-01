@@ -26,7 +26,8 @@ var List = React.createClass({
           source: "reddit",
           id: child.data.id,
           title: child.data.title,
-          url: child.data.url
+          url: child.data.url,
+          time: child.data.created_utc
         };
       });
 
@@ -47,7 +48,8 @@ var List = React.createClass({
               source: "hackernews",
               id: responseJSON.id,
               title: responseJSON.title,
-              url: responseJSON.url
+              url: responseJSON.url,
+              time: responseJSON.time
             })
           });
         });
@@ -58,7 +60,17 @@ var List = React.createClass({
   },
   
   render: function() {
-    var entries = this.state.entries.map(function(entry) {
+    var entries = this.state.entries.sort(function(firstEntry, secondEntry) {
+      var value;
+      if(firstEntry.time < secondEntry.time) {
+        value = -1;
+      } else if(firstEntry.time > secondEntry.time) {
+        value = 1;
+      } else {
+        value = 0;
+      }
+      return value;
+    }).map(function(entry) {
       return <Entry key={entry.id} source={entry.source} title={entry.title} url={entry.url} />
     });
     
