@@ -1,9 +1,8 @@
 var IconHackerNews = React.createClass({
   render: function() {
-    // I got the source SVG frome somewhere on the web.
-    return (<svg viewBox="0 0 512 512" style={{width:16, height:16}}>
-              <path d="M416,96v320H96V96H416 M448,64H64v384h384V64L448,64z" />
-              <path d="M296.7,159H342l-63.9,120v72h-39.9v-72L172,159h47.1l39.7,83.6L296.7,159z" />
+    // Path taken from Ionicons' ion-social-hackernews-outline.
+    return (<svg viewBox="0 0 400 400" style={{width:16, height:16}}>
+              <path transform="rotate(180 200 200)" d="M352 352h-320v-320h320v320zM384 384v0v-384h-384v384h384zM233 289h45l-64 -120v-72h-40v72l-66 120h47l40 -84z" />
             </svg>);
   }
 });
