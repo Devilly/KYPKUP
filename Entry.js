@@ -1,8 +1,13 @@
-var Entry = React.createClass({
-  render: function() {    
-    return (<li>
-              <Icon source={this.props.source} />
-              <a href={this.props.url}>{this.props.title}</a>
-            </li>);
+import React from "react";
+import Icon from "./Icon";
+
+module.exports = React.createClass({
+  render: function () {
+    return (
+      <li>
+        <Icon source={this.props.source} />
+        <a href={this.props.url}>{this.props.title}</a>
+      </li>
+    );
   }
 });

@@ -1,4 +1,7 @@
-var List = React.createClass({
+import React from "react";
+import Entry from "./Entry";
+
+module.exports = React.createClass({
   getInitialState: function() {
     return {
       entries: []
@@ -82,7 +85,9 @@ var List = React.createClass({
       }
       return value;
     }).map(function(entry) {
-      return <Entry key={entry.id} source={entry.source} title={entry.title} url={entry.url} />
+      return (
+        <Entry key={entry.id} source={entry.source} title={entry.title} url={entry.url} />
+      );
     });
     
     var style = {
@@ -91,11 +96,8 @@ var List = React.createClass({
       padding: 0
     };
     
-    return <ul style={style}>{entries}</ul>;
+    return (
+      <ul style={style}>{entries}</ul>
+    );
   }
 });
-    
-React.render(
-  <List />,
-  document.body
-);
