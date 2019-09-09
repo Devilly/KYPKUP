@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ed683b7aa98746cd2c6c35139e201dff",
+    "revision": "363a398d77120d105060ef4b47ba9154",
     "url": "/KYPKUP/index.html"
   },
   {
