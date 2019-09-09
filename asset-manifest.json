@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/KYPKUP/static/js/main.a423c242.chunk.js",
-    "main.js.map": "/KYPKUP/static/js/main.a423c242.chunk.js.map",
+    "main.js": "/KYPKUP/static/js/main.dc05ce47.chunk.js",
+    "main.js.map": "/KYPKUP/static/js/main.dc05ce47.chunk.js.map",
     "runtime~main.js": "/KYPKUP/static/js/runtime~main.e386a400.js",
     "runtime~main.js.map": "/KYPKUP/static/js/runtime~main.e386a400.js.map",
     "static/js/2.74c27e83.chunk.js": "/KYPKUP/static/js/2.74c27e83.chunk.js",
     "static/js/2.74c27e83.chunk.js.map": "/KYPKUP/static/js/2.74c27e83.chunk.js.map",
     "index.html": "/KYPKUP/index.html",
-    "precache-manifest.fcda36cdd24a4e188958b5e63137da47.js": "/KYPKUP/precache-manifest.fcda36cdd24a4e188958b5e63137da47.js",
+    "precache-manifest.c8ec067fbf085912b368c6d737b0e061.js": "/KYPKUP/precache-manifest.c8ec067fbf085912b368c6d737b0e061.js",
     "service-worker.js": "/KYPKUP/service-worker.js"
   }
 }

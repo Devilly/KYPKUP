@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/KYPKUP/precache-manifest.fcda36cdd24a4e188958b5e63137da47.js"
+  "/KYPKUP/precache-manifest.c8ec067fbf085912b368c6d737b0e061.js"
 );
 
 self.addEventListener('message', (event) => {
