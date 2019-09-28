@@ -2,7 +2,7 @@
   "name": "kypkup",
   "version": "0.0.1",
   "private": true,
-  "homepage": "http://devilly.github.io/KYPKUP/",
+  "homepage": ".",
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
