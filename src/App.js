@@ -6,8 +6,9 @@ export default () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('https://www.reddit.com/r/programming.json');
-      const json = await response.json();
+      // Load entries from Reddit.
+      let response = await fetch('https://www.reddit.com/r/programming.json');
+      let json = await response.json();
 
       const newListItems = json.data.children.slice(0, 10).map(child => {
         return {
@@ -20,13 +21,11 @@ export default () => {
       });
 
       setListItems(listItems => listItems.concat(newListItems));
-    })();
 
-    (async () => {
-      const response = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
-      const json = await response.json();
+      // Load entries from Hacker News.
+      response = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
+      json = await response.json();
 
-      let numberOfHackerNewsStories = 0;
       const addHackerNewsStory = async id => {
         const storyResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
         const storyJson = await storyResponse.json();
@@ -39,8 +38,6 @@ export default () => {
           if (isAlreadyListed) {
             return listItems;
           } else {
-            numberOfHackerNewsStories++;
-
             return listItems.concat({
               source: 'hackernews',
               id: 'hackernews-' + storyJson.id,
@@ -52,7 +49,7 @@ export default () => {
         });
       };
 
-      while (numberOfHackerNewsStories < 10) {
+      for(let index = 0; index < 10; index++) {
         await addHackerNewsStory(json.shift());
       }
     })();
