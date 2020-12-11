@@ -12,7 +12,6 @@ export default () => {
 
       const newListItems = json.data.children.slice(0, 10).map(child => {
         return {
-          source: 'reddit',
           id: 'reddit-' + child.data.id,
           title: child.data.title,
           url: child.data.url,
@@ -39,7 +38,6 @@ export default () => {
             return listItems;
           } else {
             return listItems.concat({
-              source: 'hackernews',
               id: 'hackernews-' + storyJson.id,
               title: storyJson.title,
               url: storyJson.url,
@@ -56,7 +54,7 @@ export default () => {
   }, []);
 
   var entries = listItems.filter(entry => {
-    return entry.source && entry.title && entry.url && entry.time;
+    return entry.title && entry.url && entry.time;
   }).sort((firstEntry, secondEntry) => {
     var value;
     if (firstEntry.time < secondEntry.time) {
